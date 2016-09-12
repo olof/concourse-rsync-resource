@@ -39,7 +39,7 @@ warn SYNC_DIR=$SYNC_DIR
 mkdir ~/.ssh
 chmod 600 ~/.ssh
 (jq -r '.source.private_key // empty' < $SCRIPT_INPUT) > ~/.ssh/server_key
-echo -e "Host $SERVER\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+printf 'Host %s\n\tStrictHostKeyChecking no\n' "$SERVER" >~/.ssh/config
 chmod 600 ~/.ssh/*
 
 eval $(ssh-agent) 1>&2 2>/dev/null
