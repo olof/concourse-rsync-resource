@@ -49,7 +49,7 @@ SSH_ASKPASS=/opt/resource/askpass.sh DISPLAY= ssh-add ~/.ssh/server_key 1>&2 2>/
 ssh -i ~/.ssh/server_key$PORT $USER@$SERVER mkdir -p $DEST_DIR ||
 	die "Failed to create destination $DEST_DIR"
 
-rsync -Pav -e 'ssh -i ~/.ssh/server_key$PORT' \
+rsync -Pav -e "ssh -i ~/.ssh/server_key$PORT" \
   $SRC_DIR/$SYNC_DIR/* $USER@$SERVER:$DEST_DIR ||
     die "Failed to rsync $SRC_DIR to $DEST_DIR"
 
