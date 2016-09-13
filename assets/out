@@ -25,16 +25,15 @@ SYNC_DIR=$(jq -r '.params.sync_dir // ""' < $SCRIPT_INPUT)
 ## use default SSH port number 22 otherwise
 PORT=${PORT:+ -p $PORT}
 
-warn SRC_DIR=$SRC_DIR
 warn BUILD_ID=$BUILD_ID
 warn BUILD_NAME=$BUILD_NAME
 warn BUILD_JOB_NAME=$BUILD_JOB_NAME
 warn BUILD_PIPELINE_NAME=$BUILD_PIPELINE_NAME
-warn SCRIPT_INPUT=$SCRIPT_INPUT
 warn SERVER=$SERVER
 warn PORT=$PORT
-warn DEST_DIR=$DEST_DIR
 warn USER=$USER
+warn SRC_DIR=$SRC_DIR
+warn DEST_DIR=$DEST_DIR
 warn SYNC_DIR=$SYNC_DIR
 
 mkdir ~/.ssh
