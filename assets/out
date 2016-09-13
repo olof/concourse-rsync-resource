@@ -1,15 +1,6 @@
 #!/usr/bin/env bash
-set -x
-
-warn() {
-	echo "$*" >&2
-}
-
-die() {
-	warn "$@"
-	exit 1
-}
-
+warn() { echo "$*" >&2; }
+die() { warn "$@"; exit 1; }
 SRC_DIR=$1
 
 SCRIPT_INPUT='/tmp/input'
@@ -25,11 +16,7 @@ SYNC_DIR=$(jq -r '.params.sync_dir // ""' < $SCRIPT_INPUT)
 ## use default SSH port number 22 otherwise
 PORT=${PORT:+ -p $PORT}
 
-warn BUILD_ID=$BUILD_ID
-warn BUILD_NAME=$BUILD_NAME
-warn BUILD_JOB_NAME=$BUILD_JOB_NAME
-warn BUILD_PIPELINE_NAME=$BUILD_PIPELINE_NAME
-warn SERVER=$SERVER
+warn Build: $BUILD_PIPELINE_NAME/$BUILD_NAME:$BUILD_JOB_NAME
 warn PORT=$PORT
 warn USER=$USER
 warn SRC_DIR=$SRC_DIR
