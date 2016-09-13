@@ -50,7 +50,7 @@ ssh -i ~/.ssh/server_key$PORT $USER@$SERVER mkdir -p $DEST_DIR ||
 	die "Failed to create destination $DEST_DIR"
 
 rsync -Pav -e "ssh -i ~/.ssh/server_key$PORT" \
-  $SRC_DIR/$SYNC_DIR/* $USER@$SERVER:$DEST_DIR ||
+  $SRC_DIR/$SYNC_DIR/* $USER@$SERVER:$DEST_DIR >&2 ||
     die "Failed to rsync $SRC_DIR to $DEST_DIR"
 
 #printf '{"version": {"ref": "none"}}\n'
