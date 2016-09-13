@@ -54,5 +54,5 @@ rsync -Pav -e "ssh -i ~/.ssh/server_key$PORT" \
   $SRC_DIR/$SYNC_DIR/* $USER@$SERVER:$DEST_DIR ||
     die "Failed to rsync $SRC_DIR to $DEST_DIR"
 
-printf '{"version": {"ref": "none"}}\n'
+#printf '{"version": {"ref": "none"}}\n'
 #printf '{"version": {"ref": "%s"}}\n' "$BUILD_PIPELINE_NAME/$BUILD_NAME:$BUILD_ID"
