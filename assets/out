@@ -43,7 +43,7 @@ chmod 600 ~/.ssh
 printf 'Host %s\n\tStrictHostKeyChecking no\n' "$SERVER" >~/.ssh/config
 chmod 600 ~/.ssh/*
 
-eval $(ssh-agent) >&2 2>/dev/null
+eval $(ssh-agent >/dev/null)
 SSH_ASKPASS=/opt/resource/askpass.sh DISPLAY= ssh-add ~/.ssh/server_key 1>&2 2>/dev/null
 
 # Create the new directory for this build
